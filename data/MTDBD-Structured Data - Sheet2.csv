@@ -1,0 +1,37 @@
+MTDBD Mock up.docx,,,,Will need to develop controlled vocabularies for each scheme type,,"Dean should extract Event, Person, Place, and Works",,,
+ID,Name,Alternate Names,Date,Type (Event/Relationship/Place),Source,Schema,External Reference,Associator,Entry
+SRC-FEARS-18860103,,,18860103,,,Source,,,"January 3 Sunday – In Hartford Sam sent a short note to Charles Hopkins Clark of the Hartford Courant, and an ally on the “Library of Humor” project, wishing him “Happy New Year’s!” and observing about past communications on the “Library” book:
+You perceive that nothing — in Howells’s opinion — is necessary but a selection from his own humor; then the book will be finished [MTP].
+Sam also wrote two paragraphs to Howells, confirming Jan. 13, a Wednesday, as the date for another home production of P&P. In his previous letter on Dec. 26, 1885, Sam urged Howells to come that day, as the prior day they’d be practicing. See also Howells’ to Sam, Dec. 30, 1885. Howells would bring his daughter, Pilla (Mildred). To this letter, Sam added a note about his book production and debt:
+I’m out of the woods. On the last day of the year I had paid out $182,000 on the Grant book & it was totally free from debt [MTP]
+Sam also wrote to Charles Webster of plans to “be down” (to New York) on Tuesday, Jan. 5 on his way to Baltimore. Sam planned on going with William M. Laffan of the NY Sun to view the developments of the Mergenthaler Linotype machine. Laffan postponed the trip, however, though he examined the machine and wrote Sam on Jan. 25 [MTNJ 3: 215n94]. Sam also suggested a canvass of the Library of Humor in the spring or end of summer, “& thus get it out of the way before it gets to be out of date and worthless…” He felt it might at least be of use to hold their current bunch of canvassers until one of their more promising books came out, such as the Pope’s biography or Grant’s letters to his wife. He ended noting that Livy recommended paying off “that $100,000 of borrowed money…without waiting for it [the note] to mature” [MTP]. Note: Sam often claimed such decisions came from Livy, or overstated her suggestion as command. Whether this was accurate or not isn’t always clear.
+Charles Webster also wrote (typed) a letter to Sam about Major Pond disclosing “some parties” had called upon Henry Ward Beecher “and placed a check of not very small dimensions upon his desk.” Pond did not say how much the check was for, and Webster didn’t “love Beecher any more than” Sam, but loved “his money just as well,” and wanted to tie him up and “switch off War books if we can” [MTP].
+Lizzie Ferayir wrote what Sam annotated as a “begging l-tter” for her rent money [MTP]."
+EVE-18860103-01,Sam wrote Charles Hopkins Clark,,18860103,"Life Event, Correspondence ",SRC-FEARS-18860103,Event,,,
+PER-MT,Samuel L. Clemens,Mark Twain,18860103,Himself,SRC-FEARS-18860103,Person,,EVE-18860103-01,
+PLA-HARTFORD,Hartford ,,18860103,City,SRC-FEARS-18860103,Place,https://twainsgeography.com/epoch/home-hartford,EVE-18860103-01,
+PER-CHAHOPCLA,Charles Hopkins Clark,,18860103,Colleague,SRC-FEARS-18860103,Person,https://librivox.org/some-articles-about-mark-twain-by-various/,EVE-18860103-01,
+WRK-LIBHUMPROJ,"""Library of Humor Project""",,18860103,Works,SRC-FEARS-18860103,Works,https://archive.org/details/marktwainslibrar00twaiuoft/page/n5/mode/2up,EVE-18860103-01,
+ORG-HARTCOURANT,Hartford Courant,,18860103,Newpaper,SRC-FEARS-18860103,Organization,,EVE-18860103-01,
+EVE-18860103-02,Sam wrote Howells,,18860103,"Life Event, Correspondence",SRC-FEARS-18860103,Event,,,
+PER-MT,Samuel L. Clemens,Mark Twain,18860103,Himself,SRC-FEARS-18860103,Person,,EVE-18860103-02,
+PER-HOWELLS,William Dean Howells,Howells,18860103,"Newspaper Editor, The Atlantic",SRC-FEARS-18860103,Person,https://www.google.com/books/edition/The_Mark_Twain_Encyclopedia/zW1k-XS6XLEC?hl=en&gbpv=1&bsq=Howells,EVE-18860103-02,
+WRK-P&P,P&P,The Prince and the Pauper,18860103,Fiction,SRC-FEARS-18860103,Works,https://legacy.mtpo2.org/xtf/view?docId=works/MTDP10004.xml;style=work;brand=mtp,EVE-18860103-02,
+EVE-18860103-05,Ulysses S. Grant book is published,,18860103,Business Venture,SRC-FEARS-18860103,Event,,,
+WRK-GRANTMEM,Grant Book,Personal Memoirs of U. S. Grant,18860103,"Works, Memoirs, Ulysses S. Grant",SRC-FEARS-18860103,Works,https://www.google.com/books/edition/Personal_Memoirs_of_U_S_Grant/xxQzAQAAMAAJ?hl=en&gbpv=1&dq=the+personal+memoirs+of+ulysses+s.+grant&printsec=frontcover,EVE-18860103-05,
+EVE-18860103-03,Sam wrote Charles Webster,,18860103,"Life Event, Correspondence",SRC-FEARS-18860103,Event,,,
+PER-MT,Mark Twain,,18860103,Himself,SRC-FEARS-18860103,Person,,EVE-18860103-03,
+PLA-NEWYORK,New York,,18860103,City,SRC-FEARS-18860103,Place,https://twainsgeography.com/location/new-york-city-new-york,EVE-18860103-03,
+PER-CHARWEB,Charles Webster,,18860103,Twain's Business Manager,SRC-FEARS-18860103,Person,https://en.wikipedia.org/wiki/Charles_L._Webster,EVE-18860103-03,
+PLA-BALTIMORE,Baltimore,,18860103,City,SRC-FEARS-18860103,Place,https://twainsgeography.com/location/baltimore-md,EVE-18860103-03,
+PER-WILLMLAFF,William M. Laffan,,18860103,"Friend, Correspondent, Publisher",SRC-FEARS-18860103,Person,https://en.wikipedia.org/wiki/William_M._Laffan,EVE-18860103-03,
+ORG-MERGLINOCOMP,Mergenthaler Linotype Company,,18860103,,SRC-FEARS-18860103,Organization,https://en.wikipedia.org/wiki/Mergenthaler_Linotype_Company,EVE-18860103-03,
+PER-OLIVCLEM,Olivia L. Clemens,Livy,18860103,Spouse,SRC-FEARS-18860103,Person,https://en.wikipedia.org/wiki/Olivia_Langdon_Clemens,EVE-18860103-03,
+EVE-18860103-04,Charles Webster wrote Sam,,18860103,"Life Event, Correspondence",SRC-FEARS-18860103,Event,,,
+PER-CHARWEB,Charles Webster,,18860103,Twain's Business Manager,SRC-FEARS-18860103,Person,,EVE-18860103-04,
+PER-MT,Samuel L. Clemens,Mark Twain,18860103,Himself,SRC-FEARS-18860103,Person,,EVE-18860103-04,
+PER-HENWARBEE,Henry Ward Beecher,,18860103,Clergyman,SRC-FEARS-18860103,Person,https://en.wikipedia.org/wiki/Henry_Ward_Beecher,EVE-18860103-04,
+PER-JAMPOND,Major James Pond,Major Pond,18860103,"Lecture Manager, Abolitionist",SRC-FEARS-18860103,Person,https://en.wikipedia.org/wiki/James_Pond_%28Medal_of_Honor%29,EVE-18860103-04,
+EVE-18860103-05,Lizzie Ferayir writes letter to Sam,,18860103,"Life Event, Correspondence",SRC-FEARS-18860103,Event,,,
+PER-LIZFER,Lizzie Ferayir,,18860103,Correspondent,SRC-FEARS-18860103,Person,https://legacy.mtpo2.org/xtf/search?keyword=Ferayir+&x=0&y=0&fieldList=text+date+letterno+writer+addressee+place+collection+repository+publication+publisher+title-uniform+identifier&style=mtp&brand=default&sort=date&category=letters,EVE-18860103-05,
+PER-MT,Samuel L. Clemens,Mark Twain,18860103,Himself,SRC-FEARS-18860103,Person,,EVE-18860103-05,
