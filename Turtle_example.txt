@@ -1,0 +1,194 @@
+Class: :BiographicalDay        – a day-long temporal container for one person’s life
+Class: :Event                  – things that happen (including communicative acts)
+Class: :MentalState            – beliefs, attitudes, ignorance, suppositions
+Class: :Person
+Class: :Place
+Class: :SourceDocument
+Class: :EvidenceAssertion      – “this source supports this claim about this event”
+
+Property: :forPerson           – BiographicalDay → Person
+Property: :hasTimeSpan         – BiographicalDay → TimeSpan (or xsd:date/DateTime)
+Property: :includesEvent       – BiographicalDay → Event
+Property: :hasSummary          – BiographicalDay → literal (human-readable summary)
+
+Property: :carriedOutBy        – Event → Person
+Property: :hasRecipient        – Event → Person
+Property: :tookPlaceAt         – Event → Place
+Property: :hasParticipant      – Event → Person
+Property: :hasSubjectMatter    – Event → literal/URI (topic of a communicative act)
+
+Property: :aboutEvent          – EvidenceAssertion → Event
+Property: :supportedBySource   – EvidenceAssertion → SourceDocument
+Property: :hasClaimText        – EvidenceAssertion → literal
+Property: :hasConfidence       – EvidenceAssertion → literal/URI (e.g., "high", "inferred")
+
+
+Turtle Example
+
+@prefix :      <http://example.org/mt-bio#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+
+#################################################################
+# Core people and places
+#################################################################
+
+:SamClemens a :Person ;
+    :preferredName "Samuel Langhorne Clemens" .
+
+:PamelaClemens a :Person ;
+    :preferredName "Pamela Clemens" .
+
+:EdwinForrest a :Person ;
+    :preferredName "Edwin Forrest" .
+
+:NewYorkCity a :Place ;
+    :placeName "New York City" .
+
+:BroadwayTheaterNY a :Place ;
+    :placeName "Broadway Theater, New York City" ;
+    :locatedIn :NewYorkCity .
+
+:StLouis a :Place ;
+    :placeName "St. Louis" .
+
+#################################################################
+# Source: the edited letter in MTL 1:16–18
+#################################################################
+
+:Source_MTL_1_16_18 a :SourceDocument ;
+    :title "Letter from Sam Clemens to Pamela Clemens" ;
+    :appearsIn "Mark Twain's Letters, vol. 1, pp. 16–18" ;
+    :documentType "Edited letter" .
+
+#################################################################
+# Biographical day container (year omitted here; fill from Day by Day)
+#################################################################
+
+:MT_Day_YYYY_10_08 a :BiographicalDay ;
+    :forPerson :SamClemens ;
+    :hasTimeSpan "YYYY-10-08"^^xsd:date ;   # placeholder year
+    :includesEvent :Event_WroteLetterToPamela,
+                   :Event_PlannedToLeaveNY,
+                   :Event_AttitudeTowardNY,
+                   :Event_IgnoranceOfFamilyLocation,
+                   :Event_SuppositionFamilyInStLouis,
+                   :Event_AttendedGladiator,
+                   :Event_ReassuresPamela ;
+    :hasSummary """
+In New York, Sam Clemens wrote to his sister Pamela after a lapse in family correspondence, explaining that for roughly two weeks he had repeatedly imagined leaving the city even as he grew attached to it. He reported uncertainty about his family’s whereabouts, tentatively placing them in St. Louis based on the final issue of the Journal, and described seeing Edwin Forrest perform as Spartacus in The Gladiator at the Broadway Theater. He closed by assuring Pamela of his financial and personal independence.
+""" .
+
+#################################################################
+# Events on that day
+#################################################################
+
+# 1. Writing the letter to Pamela in New York
+
+:Event_WroteLetterToPamela a :Event ;
+    :eventType "LetterWriting" ;
+    :carriedOutBy :SamClemens ;
+    :hasRecipient :PamelaClemens ;
+    :tookPlaceAt :NewYorkCity ;
+    :occursWithin :MT_Day_YYYY_10_08 ;
+    :hasSubjectMatter "Family correspondence, his situation in New York, theater attendance, and his independence." .
+
+# 2. Repeated plans to leave New York during previous two weeks
+#    (habitual pattern, but reported in the letter and anchored in this day)
+
+:Event_PlannedToLeaveNY a :Event ;
+    :eventType "IntentionToDepart" ;
+    :carriedOutBy :SamClemens ;
+    :tookPlaceAt :NewYorkCity ;
+    :occursWithin :MT_Day_YYYY_10_08 ;
+    :hasTemporalNote "Described as recurring 'every day for the last two weeks' prior to this letter." .
+
+# 3. Attitude toward New York ("taken a liking to the abominable place")
+
+:Event_AttitudeTowardNY a :MentalState ;
+    :stateType "ConflictedAttachmentToPlace" ;
+    :heldBy :SamClemens ;
+    :aboutPlace :NewYorkCity ;
+    :occursWithin :MT_Day_YYYY_10_08 .
+
+# 4. Ignorance of exact family location
+
+:Event_IgnoranceOfFamilyLocation a :MentalState ;
+    :stateType "IgnoranceOfFamilyWhereabouts" ;
+    :heldBy :SamClemens ;
+    :occursWithin :MT_Day_YYYY_10_08 ;
+    :hasNote "He reports not knowing where the family is, based on receiving the final issue of the Journal some days earlier." .
+
+# 5. Supposition that family is in St. Louis
+
+:Event_SuppositionFamilyInStLouis a :MentalState ;
+    :stateType "BeliefAboutFamilyLocation" ;
+    :heldBy :SamClemens ;
+    :aboutPlace :StLouis ;
+    :occursWithin :MT_Day_YYYY_10_08 ;
+    :hasConfidence "Low";   # i.e., tentative, stated as supposition
+    :hasNote "He supposes the family is in St. Louis." .
+
+# 6. Attending Edwin Forrest in The Gladiator at the Broadway Theater
+
+:Event_AttendedGladiator a :Event ;
+    :eventType "TheaterAttendance" ;
+    :carriedOutBy :SamClemens ;
+    :hasParticipant :EdwinForrest ;
+    :tookPlaceAt :BroadwayTheaterNY ;
+    :occursWithin :MT_Day_YYYY_10_08 ;
+    :hasSubjectMatter "Performance of Edwin Forrest as Spartacus in the play 'The Gladiator'." .
+
+# 7. Reassuring Pamela of his independence (“as a woodsawyer’s clerk”)
+
+:Event_ReassuresPamela a :Event ;
+    :eventType "ReassuranceInLetter" ;
+    :carriedOutBy :SamClemens ;
+    :hasRecipient :PamelaClemens ;
+    :occursWithin :MT_Day_YYYY_10_08 ;
+    :hasSubjectMatter "Assurance of personal and financial independence." .
+
+#################################################################
+# Evidentiary chains: each event/claim linked to the source
+#################################################################
+
+:EvAssert_LetterWrittenToPamela a :EvidenceAssertion ;
+    :aboutEvent :Event_WroteLetterToPamela ;
+    :supportedBySource :Source_MTL_1_16_18 ;
+    :hasClaimText "On this day Sam Clemens wrote from New York to his sister Pamela after a period of silence." ;
+    :hasConfidence "High" .
+
+:EvAssert_PlansToLeaveNY a :EvidenceAssertion ;
+    :aboutEvent :Event_PlannedToLeaveNY ;
+    :supportedBySource :Source_MTL_1_16_18 ;
+    :hasClaimText "He reports that for roughly two weeks he has daily believed he was about to leave New York." ;
+    :hasConfidence "Medium" .
+
+:EvAssert_AttitudeTowardNY a :EvidenceAssertion ;
+    :aboutEvent :Event_AttitudeTowardNY ;
+    :supportedBySource :Source_MTL_1_16_18 ;
+    :hasClaimText "He states that he has taken a liking to New York despite calling it an 'abominable' place." ;
+    :hasConfidence "High" .
+
+:EvAssert_IgnoranceFamilyLocation a :EvidenceAssertion ;
+    :aboutEvent :Event_IgnoranceOfFamilyLocation ;
+    :supportedBySource :Source_MTL_1_16_18 ;
+    :hasClaimText "He notes that he does not know the family’s current location." ;
+    :hasConfidence "High" .
+
+:EvAssert_SuppositionStLouis a :EvidenceAssertion ;
+    :aboutEvent :Event_SuppositionFamilyInStLouis ;
+    :supportedBySource :Source_MTL_1_16_18 ;
+    :hasClaimText "He infers, without certainty, that the family is likely in St. Louis." ;
+    :hasConfidence "Low" .
+
+:EvAssert_AttendedGladiator a :EvidenceAssertion ;
+    :aboutEvent :Event_AttendedGladiator ;
+    :supportedBySource :Source_MTL_1_16_18 ;
+    :hasClaimText "He reports seeing Edwin Forrest perform as Spartacus in 'The Gladiator' at the Broadway Theater." ;
+    :hasConfidence "High" .
+
+:EvAssert_ReassuresPamela a :EvidenceAssertion ;
+    :aboutEvent :Event_ReassuresPamela ;
+    :supportedBySource :Source_MTL_1_16_18 ;
+    :hasClaimText "He tells Pamela not to worry and presents himself as financially and personally independent." ;
+    :hasConfidence "High" .
